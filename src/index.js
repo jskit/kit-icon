@@ -1,6 +1,6 @@
-import Icon from './Icon.vue'
+import Icon from './components/Icon.vue'
 
-var KitIcon = {
+const KitIcon = {
   install(Vue, params = {}) {
     if (this.installed) {
       return
@@ -9,7 +9,7 @@ var KitIcon = {
     this.installed = true
 
     Vue.component(Icon.name, Icon)
-  }
+  },
 }
 
 export default KitIcon

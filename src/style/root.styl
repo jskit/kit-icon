@@ -1,0 +1,25 @@
+$color = #ccc;
+
+:root {
+  --font-light: 300;
+  --font-semibold: 500;
+  --thin-border-minus: -1px;
+  --thin-border: 1px;
+  --thin-border-color: rgba(0,0,0,.1);
+  --thin-border-color-plus: rgba(0,0,0,.15);
+
+  --max-width: layoutWidth;
+  --min-height: minHeight;
+  --max-height: maxHeight;
+}
+
+
+#app {
+  --accentColor: $color;
+  --accentColorLighten10: rgba($color, 0.1);
+  --accentColorLighten20: rgba($color, 0.2);
+  --accentColorLighten30: rgba($color, 0.3);
+  --accentColorLighten: lighten($color, 0.5);
+  --accentColorDarken: darken($color, -0.2);
+  --accentOverlay: rgba($color, 0.06);
+}

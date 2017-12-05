@@ -19,8 +19,9 @@
  * <Icon mode="custom" type="String" />
  */
 import PropTypes from 'vue-types'
+
 export default {
-  name: 'kit-icon',
+  name: 'KitIcon',
 
   props: {
     prefixCls: String,
@@ -105,18 +106,18 @@ export default {
     // 目前单位用 px
     svgStyles() {
       const { size, fill } = this.$props
-      var sizeStyle = {}
+      let sizeStyle = {}
       if (size) {
         // var size = '280, 70'
         // console.log(size.split(/\s*,\s*| +/))
         const [width, height = width] = size.split(/\s*,\s*| +/)
         sizeStyle = {
-          width: width, // svg 不需要单位
-          height: height,
+          width, // svg 不需要单位
+          height,
         }
       }
       return {
-        fill: fill,
+        fill,
         ...sizeStyle,
       }
     },
@@ -129,7 +130,7 @@ export default {
       if (mode !== 'svg') return
       let svg
       try {
-        svg = require(`./assets/svg/${type}.svg`)
+        svg = require(`../assets/svg/${type}.svg`)
       } catch (e) {
         svg = {}
         // console.log(e)
@@ -147,6 +148,7 @@ export default {
     // 这里如何塞入 slot 呢
     switch (mode) {
       case 'font': {
+        // 通过{}实现块区域，隔离 const 变量
         const { classes, styles } = this
         iconNode = (
           <i class={ classes } style={ styles }></i>
@@ -178,15 +180,32 @@ export default {
 }
 </script>
 
-<style>
+<style lang="stylus" scope>
 .icon-svg {
   width: 1em;
   height: 1em;
   fill: currentColor;
-  transform: inherit;
+  // transform: inherit; // 不要使用这个，有时外部盒子会有形变
 }
 .icon-font {
   font-size: 1em;
   color: currentColor;
 }
+// .icon-custom 参见 icon-custom.styl
+// .icon-after::after,
+// .icon-before::before
+//   content ''
+//   display inline-block
+//   width 12px
+//   height 12px
+//   color inherit
+
+// .icon-arrow::after
+//   width 9px
+//   height 9px
+//   border-width 1px 1px 0 0
+//   border-color currentColor
+//   border-style solid
+//   transform matrix(0.71, 0.71, -0.71, 0.71, 0, 0)
+
 </style>
