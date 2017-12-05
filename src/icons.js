@@ -24,6 +24,8 @@ const icons = [
       'warning',
       'warning-circle',
       'warning-circle-o',
+      'warning-triangle',
+      'warning-triangle-o',
       // 加减
       'plus',
       'plus-circle',
@@ -90,7 +92,6 @@ const icons = [
       'edit',
       'ellipsis-circle',
       'ellipsis',
-      'exception-circle',
       'exception',
       'export',
       'export2',
