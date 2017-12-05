@@ -2,19 +2,15 @@
   <div id="app">
     <div class="panel">
       <h2>iconsvg</h2>
-      <div class="icons">
-        <span class="icon" v-for="item in svgIcons" :key="item">
-          <KitIcon mode="svg" :type="item" />
-          <span class="icon-text">{{item}}</span>
-        </span>
-      </div>
-      <h2>iconfont</h2>
-      <div class="icons">
-        <span class="icon" v-for="item in fontIcons" :key="item">
-          <KitIcon mode="font" :type="item">{{item}}</KitIcon>
-          <span class="icon-text">{{item}}</span>
-        </span>
-      </div>
+      <template v-for="group in svgIcons">
+        <h3>{{ group.title }}</h3>
+        <div class="icons">
+          <span class="icon" v-for="item in group.list" :key="item">
+            <KitIcon mode="svg" :type="item" />
+            <span class="icon-text">{{item}}</span>
+          </span>
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -43,9 +39,22 @@ export default {
 @import './style/index';
 
 .panel {
-  h2 {
-    padding: 32px 16px 16px;
+  padding: 16px 0;
+  h2,
+  h3 {
+    margin: 16px;
   }
+}
+
+// 动画 Spin
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.is-spin {
+  animation: spin 1s linear infinite;
 }
 
 .icons {
@@ -68,8 +77,8 @@ export default {
       background-color: #108ee9;
       color: #fff;
 
-      .icon-font,
-      .icon-svg {
+      .icon-font:not(.is-spin),
+      .icon-svg:not(.is-spin) {
         transform: scale(1.4);
       }
     }
