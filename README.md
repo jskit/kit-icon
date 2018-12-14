@@ -1,5 +1,7 @@
 # kit-icon
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jskit/kit-icon.svg)](https://greenkeeper.io/)
+
 此处维护常用的 icon 图标，svg 版本
 
 关于实现方便快捷的 Icon 图标方案，可以参考 `kit-ui` 的 `Icon` 组件
